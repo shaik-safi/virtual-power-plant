@@ -25,7 +25,7 @@ public class BatteryStatisticsResponse {
 		this.names = names;
 	}
 
-	public double geTotal() {
+	public double getTotal() {
 		return total;
 	}
 

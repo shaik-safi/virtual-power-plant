@@ -16,7 +16,13 @@ public class PowerPlantService {
 	@Autowired
     private BatteryRepository batteryRepository;
 
-    public void addBatteries(List<Battery> batteries) {
+    @Autowired
+    public PowerPlantService(BatteryRepository batteryRepository) {
+        this.batteryRepository = batteryRepository;
+    }
+
+    
+	public void addBatteries(List<Battery> batteries) {
         batteryRepository.saveAll(batteries);
     }
 
