@@ -18,13 +18,13 @@ The application is deployed on AWS using Elastic Beanstalk for the application l
    - **Description:** Adds a list of batteries to the virtual power plant system.
 
 2. **Battery Statistics:**
-   - **Endpoint:** [http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics](http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics)
+   - **Endpoint:** [http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics?start=0000&end=5000](http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics?start=0000&end=5000)
    - **Method:** GET
    - **Description:** Retrieves statistics for batteries within a given postcode range.
 
-   To retrieve meaningful statistics, use the following format:
-   - [http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics?start=<start>&end=<end>](http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics?start=<start>&end=<end>)
-   - Replace `<start>` and `<end>` with the desired postcode range.
+   Use the above link with sample data (start=0000, end=5000) to explore meaningful statistics.
+
+   **Note:** To retrieve statistics for a specific postcode range, replace `<start>` and `<end>` with the desired values.
 
 ## Portfolio
 
