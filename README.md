@@ -22,6 +22,18 @@ The application is deployed on AWS using Elastic Beanstalk for the application l
    - **Method:** GET
    - **Description:** Retrieves statistics for batteries within a given postcode range.
 
+   To retrieve meaningful statistics, use the following format:
+   - [http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics?start=<start>&end=<end>](http://virtualpowerplantaws-env.eba-mnuzr5jy.us-east-1.elasticbeanstalk.com/power-plant/battery-statistics?start=<start>&end=<end>)
+   - Replace `<start>` and `<end>` with the desired postcode range.
+
 ## Portfolio
 
 Check out my portfolio: [https://shaiksafi.netlify.app/](https://shaiksafi.netlify.app/)
+
+## Contributing
+
+Contributions are welcome! If you find a bug or have a feature request, please open an issue.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
