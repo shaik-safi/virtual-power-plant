@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+//Represents response of statistics of batteries
+
 @Entity
 public class BatteryStatisticsResponse {
 	@Id

@@ -10,6 +10,8 @@ import com.shaiksafi.virtualpowerplant.model.Battery;
 import com.shaiksafi.virtualpowerplant.model.BatteryStatisticsResponse;
 import com.shaiksafi.virtualpowerplant.repository.BatteryRepository;
 
+//Service class for handling logic
+
 @Service
 public class PowerPlantService {
 
@@ -21,11 +23,12 @@ public class PowerPlantService {
         this.batteryRepository = batteryRepository;
     }
 
-    
+    //Adds batteries
 	public void addBatteries(List<Battery> batteries) {
         batteryRepository.saveAll(batteries);
     }
-
+	
+	//Retrieves statistics of batteries 
     public BatteryStatisticsResponse getBatteryStatistics(String start, String end) {
         List<Battery> batteriesInRange = batteryRepository.findByPostcodeBetween(start, end);
 

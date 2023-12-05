@@ -7,8 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.shaiksafi.virtualpowerplant.model.Battery;
 
+//Repository interface for CURD operations
+
 @Repository
 public interface BatteryRepository extends CrudRepository<Battery, Long> {
-
+	
+	//Finds batteries within given range
 	List<Battery> findByPostcodeBetween(String start, String end);
 }

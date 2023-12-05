@@ -4,6 +4,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+//Represents a battery in the virtual power plant system.
+
 @Entity
 public class Battery {
 	@Id
