@@ -10,8 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.shaiksafi.virtualpowerplant.model.Battery;
-import com.shaiksafi.virtualpowerplant.model.BatteryStatisticsResponse;
+import com.shaiksafi.virtualpowerplant.dto.BatteryStatisticsResponseDTO;
+import com.shaiksafi.virtualpowerplant.entity.Battery;
+import com.shaiksafi.virtualpowerplant.entity.BatteryStatisticsResponse;
 import com.shaiksafi.virtualpowerplant.repository.BatteryRepository;
 
 public class PowerPlantServiceTest {
@@ -35,7 +36,7 @@ public class PowerPlantServiceTest {
 
         when(batteryRepository.findByPostcodeBetween("10000", "30000")).thenReturn(batteries);
 
-        BatteryStatisticsResponse response = powerPlantService.getBatteryStatistics("10000", "30000");
+        BatteryStatisticsResponseDTO response = powerPlantService.getBatteryStatistics("10000", "30000");
 
         assertEquals(550.0, response.getTotal());
         assertEquals(183.33, response.getAverage(), 0.01);

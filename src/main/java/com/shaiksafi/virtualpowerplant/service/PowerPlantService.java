@@ -6,39 +6,43 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.shaiksafi.virtualpowerplant.model.Battery;
-import com.shaiksafi.virtualpowerplant.model.BatteryStatisticsResponse;
+import com.shaiksafi.virtualpowerplant.dto.BatteryDTO;
+import com.shaiksafi.virtualpowerplant.dto.BatteryStatisticsResponseDTO;
+import com.shaiksafi.virtualpowerplant.entity.Battery;
 import com.shaiksafi.virtualpowerplant.repository.BatteryRepository;
 
 //Service class for handling logic
-
 @Service
 public class PowerPlantService {
 
-	@Autowired
-    private BatteryRepository batteryRepository;
-
-    @Autowired
-    public PowerPlantService(BatteryRepository batteryRepository) {
-        this.batteryRepository = batteryRepository;
+    private final BatteryRepository batteryRepository;
+    
+    public PowerPlantService(BatteryRepository batteryRepository){
+    	this.batteryRepository = batteryRepository;
     }
 
-    //Adds batteries
-	public void addBatteries(List<Battery> batteries) {
+    public void addBatteries(List<BatteryDTO> batteryDTOs) {
+        List<Battery> batteries = batteryDTOs.stream()
+                .map(dto -> new Battery(dto.name(), dto.postcode(), dto.wattCapacity()))
+                .collect(Collectors.toList());
         batteryRepository.saveAll(batteries);
     }
-	
-	//Retrieves statistics of batteries 
-    public BatteryStatisticsResponse getBatteryStatistics(String start, String end) {
+
+
+    public BatteryStatisticsResponseDTO getBatteryStatistics(String start, String end) {
         List<Battery> batteriesInRange = batteryRepository.findByPostcodeBetween(start, end);
 
-        double total = batteriesInRange.stream().mapToDouble(battery -> battery.getWattCapacity()).sum();
+        double total = batteriesInRange.stream().mapToDouble(Battery::getWattCapacity).sum();
 
-        double average = batteriesInRange.stream().mapToDouble(battery -> battery.getWattCapacity()).average().orElse(0.0);
+        double average = batteriesInRange.stream().mapToDouble(Battery::getWattCapacity).average().orElse(0.0);
 
-        List<String> names = batteriesInRange.stream().map(battery -> battery.getName()).sorted().collect(Collectors.toList());
+        List<String> names = batteriesInRange.stream()
+                .map(Battery::getName)
+                .sorted()
+                .collect(Collectors.toList());
 
-        return new BatteryStatisticsResponse(total, average, names);
+        BatteryStatisticsResponseDTO responseDTO = new BatteryStatisticsResponseDTO(total, average, names);
+        return responseDTO;
     }
-
 }
+
