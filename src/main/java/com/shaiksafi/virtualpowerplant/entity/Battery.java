@@ -16,11 +16,11 @@ public class Battery {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-    private String postcode;
+    private int postcode;
     private double wattCapacity;
     
     public Battery() {}
-	public Battery(String name, String postcode, double wattCapacity) {
+	public Battery(String name, int postcode, double wattCapacity) {
 		super();
 		this.name = name;
 		this.postcode = postcode;
@@ -33,10 +33,10 @@ public class Battery {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPostcode() {
+	public int getPostcode() {
 		return postcode;
 	}
-	public void setPostcode(String postcode) {
+	public void setPostcode(int postcode) {
 		this.postcode = postcode;
 	}
 	public double getWattCapacity() {
