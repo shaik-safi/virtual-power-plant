@@ -10,20 +10,21 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.shaiksafi.virtualpowerplant.dto.BatteryStatisticsResponseDTO;
-import com.shaiksafi.virtualpowerplant.entity.Battery;
-import com.shaiksafi.virtualpowerplant.entity.BatteryStatisticsResponse;
+import com.shaiksafi.virtualpowerplant.dto.response.BatteryStatisticsResponseDTO;
+import com.shaiksafi.virtualpowerplant.model.Battery;
+import com.shaiksafi.virtualpowerplant.model.BatteryStatisticsResponseEntity;
 import com.shaiksafi.virtualpowerplant.repository.BatteryRepository;
+import com.shaiksafi.virtualpowerplant.service.PowerPlantServiceImpl;
 
 public class PowerPlantServiceTest {
 
-    private PowerPlantService powerPlantService;
+    private PowerPlantServiceImpl powerPlantService;
     private BatteryRepository batteryRepository;
 
     @BeforeEach
     void setUp() {
         batteryRepository = mock(BatteryRepository.class);
-        powerPlantService = new PowerPlantService(batteryRepository);
+        powerPlantService = new PowerPlantServiceImpl(batteryRepository);
     }
 
     @Test

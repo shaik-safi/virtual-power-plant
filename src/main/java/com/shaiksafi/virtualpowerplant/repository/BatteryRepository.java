@@ -5,14 +5,12 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.shaiksafi.virtualpowerplant.dto.BatteryDTO;
-import com.shaiksafi.virtualpowerplant.entity.Battery;
+import com.shaiksafi.virtualpowerplant.model.Battery;
 
-//Repository interface for CURD operations
-
+//BatteryRepository provides CRUD operations for Battery entities.
 @Repository
 public interface BatteryRepository extends CrudRepository<Battery, Long> {
 	
-	//Finds batteries within given range
-	List<Battery> findByPostcodeBetween(int startPostcode, int endPostcode);
+	// Find batteries within a specified postcode range.
+	List<Battery> findByPostcodeBetween(String startPostcode, String endPostcode);
 }

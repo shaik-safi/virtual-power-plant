@@ -1,42 +1,40 @@
-package com.shaiksafi.virtualpowerplant.entity;
+package com.shaiksafi.virtualpowerplant.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-//Represents a battery in the virtual power plant system.
-
+//Battery represents a battery in the virtual power plant system.
 @Entity
 public class Battery {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-    private int postcode;
+    private String postcode;
     private double wattCapacity;
     
+    // Default constructor.
     public Battery() {}
-	public Battery(String name, int postcode, double wattCapacity) {
+    // Parameterized constructor for creating a battery.
+	public Battery(String name, String postcode, double wattCapacity) {
 		super();
 		this.name = name;
 		this.postcode = postcode;
 		this.wattCapacity = wattCapacity;
 	}
 	
+	// Getters and setters for battery properties.
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPostcode() {
+	public String getPostcode() {
 		return postcode;
 	}
-	public void setPostcode(int postcode) {
+	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 	public double getWattCapacity() {
@@ -46,6 +44,7 @@ public class Battery {
 		this.wattCapacity = wattCapacity;
 	}
 	
+	// ToString method for representing Battery object as a string.
 	@Override
 	public String toString() {
 		return "Battery [id=" + id + ", name=" + name + ", postcode=" + postcode + ", wattCapacity=" + wattCapacity
