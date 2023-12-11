@@ -5,7 +5,7 @@ The Virtual Power Plant System is a Spring Boot application that provides a REST
 
 ## AWS Hosting
 
-The application is hosted on Amazon Web Services (AWS), providing a scalable and reliable infrastructure for seamless access. You can access the live deployment of the Virtual Power Plant System by following the link below:
+The Virtual Power Plant System's REST API is hosted on Amazon Web Services (AWS) for reliable and scalable access. You can access the live deployment by following this link:
 
 [Access Virtual Power Plant on AWS](http://virtual-power-plant-aws-env.eba-m2igmwzg.us-east-1.elasticbeanstalk.com/power-plant/batteries)
 
