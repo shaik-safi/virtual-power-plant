@@ -17,10 +17,7 @@ import com.shaiksafi.virtualpowerplant.model.Battery;
 import com.shaiksafi.virtualpowerplant.repository.BatteryRepository;
 import com.shaiksafi.virtualpowerplant.util.BatteryStatisticsUtil;
 
-import lombok.extern.slf4j.Slf4j;
-
 //PowerPlantServiceImpl implements the PowerPlantService interface and contains the business logic.
-@Slf4j
 @Service
 public class PowerPlantServiceImpl implements PowerPlantService {
 

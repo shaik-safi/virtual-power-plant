@@ -41,7 +41,7 @@ public class PowerPlantController {
 
  // Endpoint to add batteries to the system.
  @PostMapping("/batteries")
- public ResponseEntity<?> addBatteries(@RequestBody @Valid List<BatteryDto> batteryRequestBatteryDtos, BindingResult bindingResult) {
+ public ResponseEntity<?> addBatteries(@RequestBody @Valid List<BatteryDto> batteryRequestBatteryDtos,BindingResult bindingResult) {
      log.info("PowerPlantController:addBatteries execution started.");
 
      // Check for validation errors in the incoming data.
